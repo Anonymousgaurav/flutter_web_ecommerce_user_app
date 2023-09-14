@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:user_app/authentication/auth_screen.dart';
 import 'package:user_app/global/global.dart';
 import 'package:user_app/mainScreens/home_screen.dart';
+import 'package:user_app/utils/DeviceUtils.dart';
 import 'package:user_app/utils/Fonts.dart';
 
 const SPLASH_IMAGE = "assets/images/welcome.png";
@@ -55,14 +56,14 @@ class _MySplashScreenState extends State<MySplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(_DIMENS.PADDING_ALL),
               child: Image.asset(SPLASH_IMAGE),
             ),
             const SizedBox(
               height: 10,
             ),
-            const Padding(
-              padding: EdgeInsets.all(8.0),
+            Padding(
+              padding: EdgeInsets.all(_DIMENS.PADDING_BOTTOM),
               child: Column(
                 children: [
                   Text(
@@ -70,17 +71,20 @@ class _MySplashScreenState extends State<MySplashScreen> {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 20,
+                      fontSize: DeviceUtils.fractionWidth(context,fraction: 35.0),
                       fontFamily: Fonts.primaryFontFamily,
                       letterSpacing: 3,
                     ),
+                  ),
+                  const SizedBox(
+                    height: 4,
                   ),
                   Text(
                     "World's Largest & No.1 Food Delivery App",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 24,
+                      fontSize: DeviceUtils.fractionWidth(context,fraction: 40.0),
                       fontFamily: Fonts.secondaryFontFamily,
                       letterSpacing: 3,
                     ),
@@ -91,6 +95,14 @@ class _MySplashScreenState extends State<MySplashScreen> {
           ],
         ),
       ),
-    ));
+    ),);
   }
+}
+
+abstract class _DIMENS {
+  static double PADDING_ALL = 8.0;
+  static double PADDING_BOTTOM = 12.0;
+  static double MARGIN_BOTTOM = 8.0;
+  static double MARGIN_TOP = 12.0;
+  static double MARGIN_S_TOP = 5.0;
 }
