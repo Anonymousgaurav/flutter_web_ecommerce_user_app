@@ -17,22 +17,11 @@ class MySplashScreen extends StatefulWidget {
 }
 
 class _MySplashScreenState extends State<MySplashScreen> {
-  startTimer() {
-    Timer(const Duration(seconds: 3), () async {
-      if (firebaseAuth.currentUser != null) {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const HomeScreen()));
-      } else {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const AuthScreen()));
-      }
-    });
-  }
 
   @override
   void initState() {
     super.initState();
-    startTimer();
+    spalshScreenWaitingTime();
   }
 
   @override
@@ -42,8 +31,8 @@ class _MySplashScreenState extends State<MySplashScreen> {
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            Colors.pinkAccent,
-            Colors.redAccent,
+            Colors.blue,
+            Colors.blueAccent,
           ],
           begin: FractionalOffset(0.0, 0.0),
           end: FractionalOffset(1.0, 0.0),
@@ -67,7 +56,7 @@ class _MySplashScreenState extends State<MySplashScreen> {
               child: Column(
                 children: [
                   Text(
-                    'Order Food Online With iFood',
+                    'Order Food Online',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
@@ -80,7 +69,7 @@ class _MySplashScreenState extends State<MySplashScreen> {
                     height: 4,
                   ),
                   Text(
-                    "World's Largest & No.1 Food Delivery App",
+                    "Food Delivery App",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
@@ -97,12 +86,22 @@ class _MySplashScreenState extends State<MySplashScreen> {
       ),
     ),);
   }
+
+  spalshScreenWaitingTime() {
+    Timer(const Duration(seconds: 4), () async {
+      if (firebaseAuth.currentUser != null) {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const HomeScreen()));
+      } else {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const AuthScreen()));
+      }
+    });
+  }
+
 }
 
 abstract class _DIMENS {
   static double PADDING_ALL = 8.0;
   static double PADDING_BOTTOM = 12.0;
-  static double MARGIN_BOTTOM = 8.0;
-  static double MARGIN_TOP = 12.0;
-  static double MARGIN_S_TOP = 5.0;
 }
