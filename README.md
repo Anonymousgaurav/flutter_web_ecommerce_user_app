@@ -9,3 +9,7 @@ Splash Screen
 
 Login Screen
 <img width="1219" alt="image" src="https://github.com/Anonymousgaurav/flutter_web_ecommerce_user_app/assets/26230006/bd714150-b27f-4738-b7d0-cb8baf52f920">
+
+Register Screen
+<img width="1440" alt="image" src="https://github.com/Anonymousgaurav/flutter_web_ecommerce_user_app/assets/26230006/ce1381bb-c451-442a-9d4e-0f86f08092e3">
+
